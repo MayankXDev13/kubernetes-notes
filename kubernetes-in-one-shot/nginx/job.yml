@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: demo-job
+  namespace: nginx
+spec:
+  completions: 2        # number of pods to complete
+  parallelism: 2        # how many pods run at the same time
+  template:
+    metadata:
+      labels:
+        app: batch-task
+    spec:
+      containers:
+        - name: batch-container
+          image: busybox:latest
+          command: ["sh", "-c", "echo Hello Dosto! && sleep 10"]
+      restartPolicy: Never
+

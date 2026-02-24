@@ -38,4 +38,22 @@ kubectl exec -it pod/nginx-pod -n nginx -- bash
 kubectl describe pod/nginx-pod -n nginx
 ```
 
+```
+kubectl get deployment -n nginx
+```
+```
+kubectl scale deployment/nginx-deployment -n nginx --replicas=5
+
+```
+
+```
+kubectl get pods -n nginx -o wide
+```
+
+```
+kubectl set image deployment/nginx-deployment -n nginx nginx=nginx:latest
+
+```
+
 YML File -> Manifest File
+

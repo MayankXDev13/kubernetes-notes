@@ -24,7 +24,7 @@ kubectl delete ns nginx
 ```
 
 ```
-ubectl get ns
+kubectl get ns
 ```
 
 ```
@@ -66,4 +66,5 @@ kubectl get jobs -n nginx
 ```
 
 YML File -> Manifest File
+
 

@@ -55,5 +55,15 @@ kubectl set image deployment/nginx-deployment -n nginx nginx=nginx:latest
 
 ```
 
+
+```
+kubectl logs pod/demo-job-tdxzr -n nginx
+
+```
+
+```
+kubectl get jobs -n nginx
+```
+
 YML File -> Manifest File
 

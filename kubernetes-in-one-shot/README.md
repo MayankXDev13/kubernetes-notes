@@ -68,3 +68,9 @@ kubectl get jobs -n nginx
 YML File -> Manifest File
 
 
+
+
+
+
+
+

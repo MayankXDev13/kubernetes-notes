@@ -24,7 +24,7 @@ kubectl delete ns nginx
 ```
 
 ```
-ubectl get ns
+kubectl get ns
 ```
 
 ```
@@ -77,4 +77,11 @@ kubectl get pvc
 kubectl describe pod nginx-deployment-7cd5f7d67c-mzmxb -n nginx
 ```
 YML File -> Manifest File
+
+
+
+
+
+
+
 

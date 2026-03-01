@@ -65,5 +65,16 @@ kubectl logs pod/demo-job-tdxzr -n nginx
 kubectl get jobs -n nginx
 ```
 
+```
+kubectl get pv
+```
+
+```
+kubectl get pvc
+```
+
+```
+kubectl describe pod nginx-deployment-7cd5f7d67c-mzmxb -n nginx
+```
 YML File -> Manifest File
 

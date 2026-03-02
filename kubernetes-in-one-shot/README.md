@@ -76,6 +76,31 @@ kubectl get pvc
 ```
 kubectl describe pod nginx-deployment-7cd5f7d67c-mzmxb -n nginx
 ```
+
+```
+kubectl port-forward service/nginx-service -n nginx 80:80 --address=0.0.0.0
+```
+```
+kubectl get all -n nginx
+```
+
+```
+kubectl rollout restart deployment notes-app-deployment -n notes-app
+```
+
+
+```
+kubectl get ing -n nginx
+```
+
+```
+kubectl get all -n nginx
+```
+
+
+```
+sudo -E kubectl port-forward  service/ingress-nginx-controller -n ingress-nginx 8080:80 --address=0.0.0.0
+```
 YML File -> Manifest File
 
 

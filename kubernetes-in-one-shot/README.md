@@ -101,6 +101,19 @@ kubectl get all -n nginx
 ```
 sudo -E kubectl port-forward  service/ingress-nginx-controller -n ingress-nginx 8080:80 --address=0.0.0.0
 ```
+
+```
+kubectl get configmap -n mysql
+```
+
+```
+kubectl get secrets -n mysql
+```
+
+```
+kubectl delete pod  mysql-statefulset-0 -n mysql
+```
+
 YML File -> Manifest File
 
 

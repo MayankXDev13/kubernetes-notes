@@ -24,6 +24,15 @@ spec:
           image: nginx:latest
           ports:
             - containerPort: 80
+          resources:
+            # minimum resources 
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            # maximum resources
+            limits:
+              cpu: 200m
+              memory: 285Mi
           volumeMounts:
             - mountPath: /var/www/html
               name: my-volume

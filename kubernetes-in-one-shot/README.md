@@ -114,6 +114,17 @@ kubectl get secrets -n mysql
 kubectl delete pod  mysql-statefulset-0 -n mysql
 ```
 
+```
+kubectl taint node  mayankxdev13-worker prod=true:NoSchedule
+```
+```
+kubectl get ns
+```
+
+```
+kubectl taint node  mayankxdev13-worker2  prod=true:NoSchedule-
+```
+
 YML File -> Manifest File
 
 

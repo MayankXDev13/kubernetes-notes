@@ -20,7 +20,15 @@ spec:
         image: mayankxdev/notes-app-k8s
         ports:
         - containerPort: 8000
-        
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 256Mi
+
+
         livenessProbe:
           httpGet:
             path: /

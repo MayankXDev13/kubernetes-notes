@@ -124,7 +124,19 @@ kubectl get ns
 ```
 kubectl taint node  mayankxdev13-worker2  prod=true:NoSchedule-
 ```
+```
+kubectl top pod
+```
+```
+kubectl top nodes
+```
+```
+sudo -E kubectl port-forward service/apache-service -n apache 82:80 --address=0.0.0.0 &
+```
 
+```
+kubectl get hpa -n apache
+```
 YML File -> Manifest File
 
 

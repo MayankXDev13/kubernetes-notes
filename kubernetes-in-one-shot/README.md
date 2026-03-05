@@ -137,6 +137,10 @@ sudo -E kubectl port-forward service/apache-service -n apache 82:80 --address=0.
 ```
 kubectl get hpa -n apache
 ```
+
+```
+kubectl get vpa -n apache
+```
 YML File -> Manifest File
 
 

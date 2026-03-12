@@ -263,6 +263,51 @@ spec:
     ports:
     - containerPort: 80
 ```
+------------------------------------------------------------------------
+
+## 14. RBAC
+
+```
+ kubectl auth whoami 
+```
+
+```
+kubectl auth can-i get pods
+```
+
+```
+kubectl auth can-i get deployment -n apache 
+```
+```
+kubectl apply -f role.yml
+```
+```
+kubectl get role -n apache 
+```
+
+```
+kubectl apply -f service-account.yml
+```
+
+```
+kubectl get serviceaccounts -n apache 
+```
+
+```
+kubectl auth can-i get pods -n apache --as=apache-user
+```
+
+```
+kubectl apply -f role-binding.yml
+```
+
+```
+kubectl apply -f role-binding.yml
+```
+
+```
+kubectl get rolebindings -n apache
+```
 
 ### Apply Manifest
 

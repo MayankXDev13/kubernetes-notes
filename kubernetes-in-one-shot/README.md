@@ -339,3 +339,21 @@ Create Helm Chart
 ```
 helm create <name-of-app>-helm
 ```
+Helm Create all Files You have only edit the values.yml
+
+Packege the chart
+
+```
+helm package <folder-name>
+```
+
+```
+helm install <name-of-app> <chart-name>
+```
+```
+helm install dev-apache apache-helm -n dev-apache --create-namespace
+```
+
+```
+helm uninstall dev-apache apache-helm
+```

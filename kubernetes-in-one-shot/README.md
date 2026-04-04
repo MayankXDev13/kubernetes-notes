@@ -4,253 +4,253 @@
 
 ### Create Namespace
 
-``` bash
+```bash
 kubectl create ns nginx
 ```
 
 ### List Namespaces
 
-``` bash
+```bash
 kubectl get ns
 ```
 
 ### Delete Namespace
 
-``` bash
+```bash
 kubectl delete ns nginx
 ```
 
-------------------------------------------------------------------------
+---
 
 ## 2. Pod Commands
 
 ### Create Pod
 
-``` bash
+```bash
 kubectl run nginx --image=nginx
 ```
 
 ### Create Pod in Namespace
 
-``` bash
+```bash
 kubectl run nginx --image=nginx -n nginx
 ```
 
 ### Delete Pod
 
-``` bash
+```bash
 kubectl delete pod nginx
 ```
 
 ### List Pods
 
-``` bash
+```bash
 kubectl get pods -n nginx
 ```
 
 ### Detailed Pod Information
 
-``` bash
+```bash
 kubectl describe pod/nginx-pod -n nginx
 ```
 
 ### Execute Inside Pod
 
-``` bash
+```bash
 kubectl exec -it pod/nginx-pod -n nginx -- bash
 ```
 
 ### Pod Logs
 
-``` bash
+```bash
 kubectl logs pod/demo-job-tdxzr -n nginx
 ```
 
-------------------------------------------------------------------------
+---
 
 ## 3. Deployment Commands
 
 ### Get Deployments
 
-``` bash
+```bash
 kubectl get deployment -n nginx
 ```
 
 ### Scale Deployment
 
-``` bash
+```bash
 kubectl scale deployment/nginx-deployment -n nginx --replicas=5
 ```
 
 ### Update Image
 
-``` bash
+```bash
 kubectl set image deployment/nginx-deployment -n nginx nginx=nginx:latest
 ```
 
 ### Restart Deployment
 
-``` bash
+```bash
 kubectl rollout restart deployment notes-app-deployment -n notes-app
 ```
 
-------------------------------------------------------------------------
+---
 
 ## 4. Services and Port Forwarding
 
 ### Port Forward Service
 
-``` bash
+```bash
 kubectl port-forward service/nginx-service -n nginx 80:80 --address=0.0.0.0
 ```
 
 ### Port Forward Apache Service
 
-``` bash
+```bash
 sudo -E kubectl port-forward service/apache-service -n apache 82:80 --address=0.0.0.0 &
 ```
 
-------------------------------------------------------------------------
+---
 
 ## 5. Cluster Resources
 
 ### Get All Resources
 
-``` bash
+```bash
 kubectl get all -n nginx
 ```
 
 ### Get Pods with More Details
 
-``` bash
+```bash
 kubectl get pods -n nginx -o wide
 ```
 
-------------------------------------------------------------------------
+---
 
 ## 6. Storage
 
 ### Persistent Volumes
 
-``` bash
+```bash
 kubectl get pv
 ```
 
 ### Persistent Volume Claims
 
-``` bash
+```bash
 kubectl get pvc
 ```
 
-------------------------------------------------------------------------
+---
 
 ## 7. Jobs
 
 ### List Jobs
 
-``` bash
+```bash
 kubectl get jobs -n nginx
 ```
 
 ### View Job Logs
 
-``` bash
+```bash
 kubectl logs pod/demo-job-tdxzr -n nginx
 ```
 
-------------------------------------------------------------------------
+---
 
 ## 8. ConfigMaps and Secrets
 
 ### ConfigMaps
 
-``` bash
+```bash
 kubectl get configmap -n mysql
 ```
 
 ### Secrets
 
-``` bash
+```bash
 kubectl get secrets -n mysql
 ```
 
-------------------------------------------------------------------------
+---
 
 ## 9. StatefulSet Pod Management
 
-``` bash
+```bash
 kubectl delete pod mysql-statefulset-0 -n mysql
 ```
 
-------------------------------------------------------------------------
+---
 
 ## 10. Node Taints
 
 ### Add Taint
 
-``` bash
+```bash
 kubectl taint node mayankxdev13-worker prod=true:NoSchedule
 ```
 
 ### Remove Taint
 
-``` bash
+```bash
 kubectl taint node mayankxdev13-worker2 prod=true:NoSchedule-
 ```
 
-------------------------------------------------------------------------
+---
 
 ## 11. Monitoring
 
 ### Pod Resource Usage
 
-``` bash
+```bash
 kubectl top pod
 ```
 
 ### Node Resource Usage
 
-``` bash
+```bash
 kubectl top nodes
 ```
 
-------------------------------------------------------------------------
+---
 
 ## 12. Autoscaling
 
 ### Horizontal Pod Autoscaler
 
-``` bash
+```bash
 kubectl get hpa -n apache
 ```
 
 ### Vertical Pod Autoscaler
 
-``` bash
+```bash
 kubectl get vpa -n apache
 ```
 
-------------------------------------------------------------------------
+---
 
 ## 13. Ingress
 
 ### List Ingress
 
-``` bash
+```bash
 kubectl get ing -n nginx
 ```
 
 ### Port Forward Ingress Controller
 
-``` bash
+```bash
 sudo -E kubectl port-forward service/ingress-nginx-controller -n ingress-nginx 8080:80 --address=0.0.0.0
 ```
 
-------------------------------------------------------------------------
+---
 
 ## 14. Example Kubernetes Manifest (YAML)
 
-``` yaml
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -258,17 +258,18 @@ metadata:
   namespace: nginx
 spec:
   containers:
-  - name: nginx
-    image: nginx
-    ports:
-    - containerPort: 80
+    - name: nginx
+      image: nginx
+      ports:
+        - containerPort: 80
 ```
-------------------------------------------------------------------------
+
+---
 
 ## 14. RBAC
 
 ```
- kubectl auth whoami 
+ kubectl auth whoami
 ```
 
 ```
@@ -276,13 +277,15 @@ kubectl auth can-i get pods
 ```
 
 ```
-kubectl auth can-i get deployment -n apache 
+kubectl auth can-i get deployment -n apache
 ```
+
 ```
 kubectl apply -f role.yml
 ```
+
 ```
-kubectl get role -n apache 
+kubectl get role -n apache
 ```
 
 ```
@@ -290,7 +293,7 @@ kubectl apply -f service-account.yml
 ```
 
 ```
-kubectl get serviceaccounts -n apache 
+kubectl get serviceaccounts -n apache
 ```
 
 ```
@@ -311,6 +314,28 @@ kubectl get rolebindings -n apache
 
 ### Apply Manifest
 
-``` bash
+```bash
 kubectl apply -f pod.yaml
+```
+
+---
+
+## 15. HELM
+
+> **Helm is package manager for k8s**
+
+Install Helm Ubuntu
+
+```
+sudo apt-get install curl gpg apt-transport-https --yes
+curl -fsSL https://packages.buildkite.com/helm-linux/helm-debian/gpgkey | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/helm.gpg] https://packages.buildkite.com/helm-linux/helm-debian/any/ any main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+sudo apt-get update
+sudo apt-get install helm
+```
+
+Create Helm Chart
+
+```
+helm create <name-of-app>-helm
 ```

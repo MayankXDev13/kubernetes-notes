@@ -1,0 +1,9 @@
+kind: DevOpsBatch
+apiVersion: trainwithshubham.com/v1
+metadata:
+  name: junoon-batch-9
+spec:
+  name: "Junoon Batch 9"
+  duration: "6 months"
+  platform: "Zoom"
+  mode: "Online"  

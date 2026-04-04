@@ -320,40 +320,65 @@ kubectl apply -f pod.yaml
 
 ---
 
-## 15. HELM
+# 15. HELM
 
-> **Helm is package manager for k8s**
+> **Helm is a package manager for Kubernetes**
 
-Install Helm Ubuntu
+---
 
-```
+## Install Helm on Ubuntu
+
+```bash
 sudo apt-get install curl gpg apt-transport-https --yes
-curl -fsSL https://packages.buildkite.com/helm-linux/helm-debian/gpgkey | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
-echo "deb [signed-by=/usr/share/keyrings/helm.gpg] https://packages.buildkite.com/helm-linux/helm-debian/any/ any main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+
+curl -fsSL https://packages.buildkite.com/helm-linux/helm-debian/gpgkey \
+| gpg --dearmor \
+| sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+
+echo "deb [signed-by=/usr/share/keyrings/helm.gpg] https://packages.buildkite.com/helm-linux/helm-debian/any/ any main" \
+| sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+
 sudo apt-get update
 sudo apt-get install helm
 ```
 
-Create Helm Chart
+---
 
-```
+## Create a Helm Chart
+
+```bash
 helm create <name-of-app>-helm
 ```
-Helm Create all Files You have only edit the values.yml
 
-Packege the chart
+This command generates all required files.  
+You mainly need to edit the `values.yaml` file.
 
-```
+---
+
+## Package the Chart
+
+```bash
 helm package <folder-name>
 ```
 
-```
+---
+
+## Install the Chart
+
+```bash
 helm install <name-of-app> <chart-name>
 ```
-```
+
+Example:
+
+```bash
 helm install dev-apache apache-helm -n dev-apache --create-namespace
 ```
 
-```
-helm uninstall dev-apache apache-helm
+---
+
+## Uninstall the Chart
+
+```bash
+helm uninstall dev-apache -n dev-apache
 ```

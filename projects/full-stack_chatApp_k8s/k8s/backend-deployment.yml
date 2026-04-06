@@ -27,7 +27,7 @@ spec:
             - name: PORT
               value: "5001"
             - name: MONGO_URI
-              value: "mongodb://mongodb:27017/chatapp"
+              value: "mongodb://root:root@mongodb:27017/chatapp"
           resources:
             limits:
               cpu: "500m"

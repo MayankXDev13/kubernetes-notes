@@ -26,8 +26,13 @@ spec:
               value: "production"
             - name: PORT
               value: "5001"
-            - name: MONGO_URI
-              value: "mongodb://root:root@mongodb:27017/chatapp"
+            - name: MONGODB_URI
+              value: "mongodb://root:root@mongodb:27017/chatapp?authSource=admin"
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: chatapp-secret
+                  key: jwt_secret
           resources:
             limits:
               cpu: "500m"
